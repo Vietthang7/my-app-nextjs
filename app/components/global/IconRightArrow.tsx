@@ -1,0 +1,35 @@
+interface IconRightArrowProps {
+  className?: string;
+}
+
+export default function IconRightArrow({
+  className = "",
+}: IconRightArrowProps) {
+  return (
+    <svg
+      className={className}
+      width="86"
+      height="86"
+      viewBox="0 0 86 86"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle
+        cx="43"
+        cy="43"
+        r="39"
+        transform="matrix(-1 0 0 1 86 0)"
+        fill="#F3F9FB"
+        stroke="white"
+        stroke-width="8"
+      />
+      <path
+        d="M39.5 36L46.5 43L39.5 50"
+        stroke="#008ECC"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+}
