@@ -339,7 +339,7 @@ const categoriesDataV2 = [
     id: 1,
     name: "Naruto",
     image: {
-      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      src: "https://hoanghamobile.com/tin-tuc/wp-content/webp-express/webp-images/uploads/2023/08/hinh-nen-naruto-2.jpg.webp",
       alt: "Mobile Category",
     },
     slug: "/naruto",
@@ -348,7 +348,7 @@ const categoriesDataV2 = [
     id: 2,
     name: "Obito",
     image: {
-      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      src: "https://symbols.vn/wp-content/uploads/2022/01/Hinh-Avt-Obito-de-thuong.jpg",
       alt: "Mobile Category",
     },
     slug: "/obito",
@@ -405,7 +405,6 @@ export default function Page() {
       <Header />
       <Categories categories={categoriesData} />
       <HeroSlider slides={heroSlidesData} />
-      {/* Main content */}
       <main>
         <Products
           products={productsData}
@@ -423,6 +422,7 @@ export default function Page() {
           category="Electronics Brands"
         />
       </main>
+      <Footer />
     </div>
   );
 }

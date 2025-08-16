@@ -16,8 +16,8 @@ interface HeroSliderProps {
 export default function SlidePerView({ slides,title, category }: HeroSliderProps) {
   return (
     <div className="bg-white">
-      <div className="relative container pt-0 py-30 margin-0">
-        <div className="flex items-center justify-between mb-4">
+      <div className="relative container pt-0 py-30">
+        <div className="flex items-center justify-between">
           <h2 className="text-3xl text-secondary font-medium">
             {title} <span className="text-primary">{category}</span>
           </h2>
@@ -29,14 +29,13 @@ export default function SlidePerView({ slides,title, category }: HeroSliderProps
             <IconRight />
           </Link>
         </div>
-        <div className="border-[1px] my-10"></div>
+        <div className="border-[1px] mb-10 mt-4"></div>
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
           loop={false}
           pagination={{
             clickable: true,
-            // el: ".custom-pagination",
           }}
           modules={[Pagination]}
           className="mySwiper rounded-2xl"

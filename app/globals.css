@@ -26,6 +26,7 @@ body {
   color: var(--foreground);
   font-family: HK Grotesk;
   font-weight: 500;
+  padding :0;
 }
 
 /* Color Variables */
