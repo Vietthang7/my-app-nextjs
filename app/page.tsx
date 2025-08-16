@@ -253,19 +253,22 @@ const heroSlidesData = [
   {
     id: 4,
     title: "Home & Kitchen Essentials",
-    image: "https://genz-store.com/wp-content/uploads/2025/02/Group-52-1.png",
+    image:
+      "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_12_27_638393109771583706_e-commerce-la-gi-3.jpg",
     imageAlt: "Kitchen Appliances",
   },
   {
     id: 5,
     title: "Home & Kitchen Essentials",
-    image: "https://genz-store.com/wp-content/uploads/2025/02/Group-52-1.png",
+    image:
+      "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_12_27_638393109771583706_e-commerce-la-gi-3.jpg",
     imageAlt: "Kitchen Appliances",
   },
   {
     id: 6,
     title: "Home & Kitchen Essentials",
-    image: "https://genz-store.com/wp-content/uploads/2025/02/Group-52-1.png",
+    image:
+      "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_12_27_638393109771583706_e-commerce-la-gi-3.jpg",
     imageAlt: "Kitchen Appliances",
   },
 ];
@@ -414,7 +417,11 @@ export default function Page() {
           title="Shop From"
           category="Top Categories"
         />
-        <SlidePerView slides={heroSlidesData} />
+        <SlidePerView
+          slides={heroSlidesData}
+          title="Top"
+          category="Electronics Brands"
+        />
       </main>
     </div>
   );
