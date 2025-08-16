@@ -1,33 +1,69 @@
 "use client";
 import Link from "next/link";
 import type { ProductData } from "../../types/product";
-
+import IconRight from "../global/IconRight";
 interface ProductsProps {
-  products: ProductData[],
+  products: ProductData[];
   title?: string;
   category?: string;
 }
 export default function Products({ products, title, category }: ProductsProps) {
   return (
-    <div className="container px-4 py-8">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <div className="container px-4 py-30">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-3xl text-secondary font-medium">
+          {title} <span className="text-primary">{category}</span>
+        </h2>
+        <Link
+          href="/products"
+          className="text-black hover:text-primary flex items-center gap-1"
+        >
+          View All
+          <IconRight/>
+        </Link>
+      </div>
+      <div className="border-[1px] mt-4"></div>
+      <div className="grid grid-cols-5 space-x-4 mt-10">
         {products.map((product) => (
-          <div key={product.id} className="border rounded-lg p-4">
+          <div key={product.id} className=" border rounded-2xl">
             <Link href={product.slug}>
-              <img
-                src={product.metadata.image}
-                alt={product.metadata.alt}
-                className="w-full h-48 object-cover mb-4 rounded"
-              />
-              <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-              <p className="text-gray-600">
-                ${product.price.toFixed(2)}
+              <div className="relative">
                 {product.price_sale && (
-                  <span className="text-red-500 ml-2 line-through">
-                    ${product.price_sale.toFixed(2)}
+                  <div className="absolute top-0 right-0 bg-primary px-2 py-[11px] rounded-bl-2xl rounded-tr-2xl">
+                    {Math.round(
+                      ((product.price_sale - product.price) /
+                        product.price_sale) *
+                        100
+                    )}
+                    %<br />
+                    OFF
+                  </div>
+                )}
+                <div className="w-full max-h-[188px] rounded-2xl overflow-hidden">
+                <img src={product.metadata.image} alt={product.metadata.alt}  className="w-full h-full object-cover"/>
+                </div>
+              </div>
+              <div className="space-y-[10px] px-[10px] py-4">
+                <h3 className="text-lg font-medium text-black line-clamp-2 leading-tight">
+                  {product.name}
+                </h3>
+                <div className="space-x-2 text-lg">
+                  <span className="font-bold text-black">
+                    ₹{Math.round(product.price)}
+                  </span>
+                  {product.price_sale && (
+                    <span className="text-secondary line-through">
+                      ₹{Math.round(product.price_sale)}
+                    </span>
+                  )}
+                </div>
+                <div className="border-[1px]"></div>
+                {product.price_sale && (
+                  <span className="text-lg text-green-600 font-medium">
+                    Save - ₹{Math.round(product.price - product.price_sale)}
                   </span>
                 )}
-              </p>
+              </div>
             </Link>
           </div>
         ))}
@@ -35,78 +71,3 @@ export default function Products({ products, title, category }: ProductsProps) {
     </div>
   );
 }
-
-
-// export default function Products({ products, title = "Grab the best deal on", category = "Smartphones" }: ProductsProps) {
-//   return (
-//     <div className="container mx-auto px-4 py-8">
-//       {/* Header Section */}
-//       <div className="flex items-center justify-between mb-6">
-//         <h2 className="text-xl font-semibold text-gray-800">
-//           {title} <span className="text-blue-600 border-b-2 border-blue-600">{category}</span>
-//         </h2>
-//         <Link href="/products" className="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-1">
-//           View All
-//           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-//             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-//           </svg>
-//         </Link>
-//       </div>
-
-//       {/* Products Grid */}
-//       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-//         {products.map((product) => (
-//           <div key={product.id} className="bg-white border border-gray-200 rounded-lg p-4 hover:shadow-lg transition-shadow duration-200">
-//             <Link href={product.slug}>
-//               <div className="relative mb-3">
-//                 {/* Discount Badge */}
-//                 {product.price_sale && (
-//                   <div className="absolute top-2 right-2 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded z-10">
-//                     {Math.round(((product.price_sale - product.price) / product.price_sale) * 100)}%<br />OFF
-//                   </div>
-//                 )}
-                
-//                 {/* Product Image */}
-//                 <div className="w-full h-40 bg-gray-100 rounded-lg overflow-hidden">
-//                   <img
-//                     src={product.metadata.image}
-//                     alt={product.metadata.alt}
-//                     className="w-full h-full object-contain"
-//                   />
-//                 </div>
-//               </div>
-
-//               {/* Product Info */}
-//               <div className="space-y-2">
-//                 <h3 className="text-sm font-medium text-gray-800 line-clamp-2 leading-tight">
-//                   {product.name}
-//                 </h3>
-                
-//                 {/* Price Section */}
-//                 <div className="space-y-1">
-//                   <div className="flex items-center gap-2">
-//                     <span className="text-lg font-bold text-gray-900">
-//                       ₹{Math.round(product.price)}
-//                     </span>
-//                     {product.price_sale && (
-//                       <span className="text-sm text-gray-500 line-through">
-//                         ₹{Math.round(product.price_sale)}
-//                       </span>
-//                     )}
-//                   </div>
-                  
-//                   {/* Savings */}
-//                   {product.price_sale && (
-//                     <p className="text-xs text-green-600 font-medium">
-//                       Save - ₹{Math.round(product.price_sale - product.price)}
-//                     </p>
-//                   )}
-//                 </div>
-//               </div>
-//             </Link>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }

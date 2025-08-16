@@ -2,7 +2,9 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Categories from "./components/Categories/Categories";
 import HeroSlider from "./components/HeroSlide/Slide";
+import SlidePerView from "./components/HeroSlide/SlidePerView";
 import Products from "./components/Products/Product";
+import Categoriesv2 from "./components/Categories/Categoriesv2";
 const categoriesData = [
   {
     id: 1,
@@ -254,6 +256,18 @@ const heroSlidesData = [
     image: "https://genz-store.com/wp-content/uploads/2025/02/Group-52-1.png",
     imageAlt: "Kitchen Appliances",
   },
+  {
+    id: 5,
+    title: "Home & Kitchen Essentials",
+    image: "https://genz-store.com/wp-content/uploads/2025/02/Group-52-1.png",
+    imageAlt: "Kitchen Appliances",
+  },
+  {
+    id: 6,
+    title: "Home & Kitchen Essentials",
+    image: "https://genz-store.com/wp-content/uploads/2025/02/Group-52-1.png",
+    imageAlt: "Kitchen Appliances",
+  },
 ];
 const productsData = [
   {
@@ -286,7 +300,8 @@ const productsData = [
     slug: "/products/4k-ultra-hd-tv",
     price: 799.99,
     metadata: {
-      image: "https://mfiles.alphacoders.com/100/thumb-1920-1008760.png",
+      image:
+        "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_12_27_638393109771583706_e-commerce-la-gi-3.jpg",
       alt: "demo 1",
     },
     price_sale: 749.99,
@@ -297,7 +312,8 @@ const productsData = [
     slug: "/products/4k-ultra-hd-tv",
     price: 799.99,
     metadata: {
-      image: "https://mfiles.alphacoders.com/100/thumb-1920-1008760.png",
+      image:
+        "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_12_27_638393109771583706_e-commerce-la-gi-3.jpg",
       alt: "demo 1",
     },
     price_sale: 749.99,
@@ -315,6 +331,71 @@ const productsData = [
     price_sale: 749.99,
   },
 ];
+const categoriesDataV2 = [
+  {
+    id: 1,
+    name: "Naruto",
+    image: {
+      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      alt: "Mobile Category",
+    },
+    slug: "/naruto",
+  },
+  {
+    id: 2,
+    name: "Obito",
+    image: {
+      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      alt: "Mobile Category",
+    },
+    slug: "/obito",
+  },
+  {
+    id: 3,
+    name: "Itachi",
+    image: {
+      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      alt: "Mobile Category",
+    },
+    slug: "/itachi",
+  },
+  {
+    id: 4,
+    name: "Sasuke",
+    image: {
+      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      alt: "Mobile Category",
+    },
+    slug: "/sasuke",
+  },
+  {
+    id: 5,
+    name: "Kakashi",
+    image: {
+      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      alt: "Mobile Category",
+    },
+    slug: "/kakashi",
+  },
+  {
+    id: 6,
+    name: "Minato",
+    image: {
+      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      alt: "Mobile Category",
+    },
+    slug: "/minato",
+  },
+  {
+    id: 7,
+    name: "Jiraiya",
+    image: {
+      src: "https://cdn.codeinet.com/gov/uploads/1752042983393-xdxxfa2fo3p.jpg",
+      alt: "Mobile Category",
+    },
+    slug: "/jiraiya",
+  },
+];
 export default function Page() {
   return (
     <div>
@@ -328,6 +409,12 @@ export default function Page() {
           title="Grab the best deal on"
           category="Smartphones"
         />
+        <Categoriesv2
+          categories={categoriesDataV2}
+          title="Shop From"
+          category="Top Categories"
+        />
+        <SlidePerView slides={heroSlidesData} />
       </main>
     </div>
   );

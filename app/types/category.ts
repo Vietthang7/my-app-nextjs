@@ -12,3 +12,12 @@ export interface CategoryItem {
   hasDropdown: boolean;
   subcategories: SubcategoryItem[];
 }
+export interface CategoryData {
+  id: number;
+  name: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+  slug?: string;
+}
